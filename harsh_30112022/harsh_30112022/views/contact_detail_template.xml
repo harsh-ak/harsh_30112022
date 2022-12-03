@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="contact_detail_page" name="Contacts">
+        <t t-call="website.layout">
+            <t t-set="additional_title">Contact Detail</t>
+            <center>
+                <h1>
+                    <u>Contact Form</u>
+                </h1>
+            </center>
+
+            <div id="wrap">
+                <div class="container" style="border-style:double; margin-bottom:10px;">
+                    <form action="/edit_contact" method="post" enctype="multipart/form-data">
+
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                        <div class="form-group" id="nameid">
+                            <label for="getname">Name</label>
+                            <input type="text" class="form-control" name="name" placeholder="Enter Name" id="getname"
+                                   t-att-value="contact_name"/>
+                        </div>
+                        <div class="form-group" id="mailid">
+                            <label for="getemail">Email address</label>
+                            <input type="email" class="form-control" name="email" aria-describedby="emailHelp"
+                                   placeholder="Enter email" id="getemail" t-att-value="contact_email"/>
+                        </div>
+
+                        <div class="form-group" id="phoneid">
+                            <label for="getphno">Phone Number</label>
+                            <input type="phone" class="form-control" placeholder="Enter Phone Number" name="phone"
+                                   id="getphno" t-att-value="contact_phone"/>
+                        </div>
+                        <input type="hidden" name="contact_id" t-att-value="contact_id"/>
+
+                        <button type="submit" class="btn btn-primary" style="margin-bottom:10px">Add</button>
+                        <br></br>
+                    </form>
+                </div>
+            </div>
+
+
+        </t>
+    </template>
+
+
+</odoo>
